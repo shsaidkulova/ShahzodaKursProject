@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Table</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+.container {
+  margin: 50px auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background-color: #f0f0f0;
+}
+
+th, td {
+  padding: 12px 20px;
+  text-align: left;
+}
+
+th {
+  font-size: 11px;
+  text-transform: capitalize;
+  color: #555;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+td {
+  font-size: 14px;
+  color: #333;
+}
+button {
+        background-color: #3c8c67;
+        color: #000000;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    button:hover {
+        background-color: #2e2e7b;
+    }
+
+
+</style>
+<body>
+  <div class="container">
+  <button><a href="{% url 'home' %}">Home</a></button>
+  <h4 style="text-align: center">Mini project of Shahzoda</h4>
+  <h4 style="text-align: center">Timetable for level</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Crs Sec</th>
+          <th>Hrs</th>
+          <th>Title</th>
+          <th>Instructor</th>
+          <th>Campus</th>
+          <th>Building</th>
+          <th>Room</th>
+          <th>Days</th>
+          <th>Time</th>
+          <th>Date</th>
+          <th>Tm</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for course in courses %}
+      	<tr>
+          <th>{{ course.id }}</th>
+          <th>{{ course.hour }}</th>
+          <th>{{ course.title }}</th>
+          <th>{{ course.instructor }}</th>
+          <th>{{ course.campus }}</th>
+          <th>{{ course.building }}</th>
+          <th>{{ course.room }}</th>
+          <th>{{ course.days }}</th>
+          <th>{{ course.start_time }}, {{ course.end_time }}</th>
+          <th>{{ course.start_semester }} , {{ course.end_semester }}</th>
+          <th>{{ course.tm }}</th>
+          <th>Lecture</th>
+        </tr>
+      {% endfor %}
+
+
+
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
